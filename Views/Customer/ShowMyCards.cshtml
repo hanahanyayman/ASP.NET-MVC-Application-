@@ -1,0 +1,59 @@
+﻿@model List<ProductsCard>
+@{
+    ViewData["Title"] = "ShowMyCards";
+}
+
+<h1>Show My Cards</h1>
+
+<br />
+<a href="/Customer/AddToCard/" class="btn btn-outline-secondary"">Add to Card</a>
+<br />
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Product ID</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">CardId</th>
+            <th></th>
+            <th></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var d in Model)
+        {
+            <tr>
+                <th>@d.Id</th>
+                <td>@d.ProductId</td>
+                <td>@d.Quatity</td>
+                <td>@d.CardId</td>
+                <td> </td>
+                <td><a href="/Customer/DeleteFromCard/@d.Id" class="btn btn-outline-danger delete-button" data-product-id="@d.Id">Delete</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<script>
+    const delete=document.querySelectorAll('.deletebutton');
+
+    delete.forEach(button => {
+        button.addEventListener(
+            'click', () => {
+                const productId = button.getAttribute("data-product-id");
+                // alret(productId);
+                const confirmdelete = confirm('Are you sure to delete this product ?');
+
+                if (confirmdelete) {
+                    window.location.href = `/Customer/DeleteFromCard/${productId}`;
+                }
+            }
+        )
+    }
+    );
+</script>
+
+
+

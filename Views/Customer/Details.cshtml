@@ -1,0 +1,17 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details My Profile</h1>
+
+<div class="card" style="width: 18rem;position:relative;margin-left:500px;">
+    <img class="card-img-top" src="/assets/ImagesUsers/@Model.Image" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-title">@Model.Password</p>
+        <p class="card-text">@Model.Age</p>
+        <p class="card-text">@Model.Role</p>
+        <a href="/Customer/ShowProfile/@Model.Id" class="btn btn-primary">Back to List</a>
+    </div>
+</div>

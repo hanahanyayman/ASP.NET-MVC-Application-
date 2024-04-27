@@ -1,0 +1,38 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1> Products</h1>
+
+<br />
+<a href="/Customer/AddToCard" class="btn btn-outline-secondary">AddToCard</a>
+<br />
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Remaining Quantity</th>
+            <th></th>
+            <th></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var d in Model)
+        {
+            <tr>
+                <th>@d.Id</th>
+                <td>@d.Name</td>
+                <td>@d.Quantity</td>
+                <td><a href="/Customer/DetailsProduct/@d.Id" class="btn btn-outline-success">Details</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+

@@ -1,0 +1,25 @@
+﻿@model Login
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+<form asp-action="Login">
+    @Html.HiddenFor(x=> x.ReturnUrl)
+
+    @if (!string.IsNullOrEmpty(ViewBag.Message))
+    {
+        <span class="text-danger">
+            @ViewBag.Message
+        </span>
+    }
+    <div class="col-md-&">
+        <input class="form-control" type="text" name="username" placeholder="Username" />
+        <br />
+        <input class="form-control" type="text" name="password" placeholder="Password" />
+        <br />
+        <button class="btn btn-success">Sign in</button>
+    </div>
+  
+</form>
